@@ -96,7 +96,8 @@
 #endif
 #endif
 
-#define ZXF_SET_COMPRESSION
+#define ZXF_SET_COMPRESSION        1
+#define ZXF_SET_DEBUG              1
 
 #define MAX_NUM_VPS                16
 #define MAX_NUM_SPS                16

@@ -1,0 +1,67 @@
+﻿Build started 15/8/2014 04:47:52 PM.
+     1>Project "D:\Gitrepositories\HM15-SIC\build\vc10\TLibCommon_vc10.vcxproj" on node 4 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TLibCommon.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:\Gitrepositories\HM15-SIC\build\\..\source\Lib\\" /I"D:\Gitrepositories\HM15-SIC\build\\..\compat\msvc" /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\\" /Fd"D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\vc100.pdb" /Gd /TP /errorReport:prompt ..\..\source\Lib\TLibCommon\ContextModel.cpp ..\..\source\Lib\TLibCommon\ContextModel3DBuffer.cpp ..\..\source\Lib\TLibCommon\SEI.cpp ..\..\source\Lib\TLibCommon\TComBitStream.cpp ..\..\source\Lib\TLibCommon\TComCABACTables.cpp ..\..\source\Lib\TLibCommon\TComDataCU.cpp ..\..\source\Lib\TLibCommon\TComInterpolationFilter.cpp ..\..\source\Lib\TLibCommon\TComLoopFilter.cpp ..\..\source\Lib\TLibCommon\TComMotionInfo.cpp ..\..\source\Lib\TLibCommon\TComPattern.cpp ..\..\source\Lib\TLibCommon\TComPic.cpp ..\..\source\Lib\TLibCommon\TComPicSym.cpp ..\..\source\Lib\TLibCommon\TComPicYuv.cpp ..\..\source\Lib\TLibCommon\TComPicYuvMD5.cpp ..\..\source\Lib\TLibCommon\TComPrediction.cpp ..\..\source\Lib\TLibCommon\TComRdCost.cpp ..\..\source\Lib\TLibCommon\TComRdCostWeightPrediction.cpp ..\..\source\Lib\TLibCommon\TComRom.cpp ..\..\source\Lib\TLibCommon\TComSampleAdaptiveOffset.cpp ..\..\source\Lib\TLibCommon\TComSlice.cpp ..\..\source\Lib\TLibCommon\TComTrQuant.cpp ..\..\source\Lib\TLibCommon\TComWeightPrediction.cpp ..\..\source\Lib\TLibCommon\TComYuv.cpp
+         TComYuv.cpp
+         TComWeightPrediction.cpp
+         TComTrQuant.cpp
+         TComSlice.cpp
+         TComSampleAdaptiveOffset.cpp
+         TComRom.cpp
+         TComRdCostWeightPrediction.cpp
+         TComRdCost.cpp
+         TComPrediction.cpp
+         TComPicYuvMD5.cpp
+         TComPicYuv.cpp
+         TComPicSym.cpp
+         TComPic.cpp
+         TComPattern.cpp
+         TComMotionInfo.cpp
+         TComLoopFilter.cpp
+         TComInterpolationFilter.cpp
+         TComDataCU.cpp
+         TComCABACTables.cpp
+         TComBitStream.cpp
+         Generating Code...
+         Compiling...
+         SEI.cpp
+         ContextModel3DBuffer.cpp
+         ContextModel.cpp
+         Generating Code...
+         All outputs are up-to-date.
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\Lib.exe /OUT:"D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TLibCommon.lib" /NOLOGO "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\ContextModel.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\ContextModel3DBuffer.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\libmd5.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\SEI.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComBitStream.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComCABACTables.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComDataCU.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComInterpolationFilter.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComLoopFilter.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComMotionInfo.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComPattern.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComPic.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComPicSym.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComPicYuv.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComPicYuvMD5.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComPrediction.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComRdCost.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComRdCostWeightPrediction.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComRom.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComSampleAdaptiveOffset.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComSlice.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComTrQuant.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComWeightPrediction.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TComYuv.obj"
+         TLibCommon_vc10.vcxproj -> D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TLibCommon.lib
+       FinalizeBuildStatus:
+         Deleting file "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TLibCommon.unsuccessfulbuild".
+         Touching "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibCommon\TLibCommon.lastbuildstate".
+     1>Done Building Project "D:\Gitrepositories\HM15-SIC\build\vc10\TLibCommon_vc10.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.90

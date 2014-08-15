@@ -241,6 +241,10 @@ Bool TAppEncCfg::parseCfg( Int argc, Char* argv[] )
   Bool do_help = false;
   
   string cfg_InputFile;
+#if ZXF_SET_COMPRESSION
+  string cfg_InputReferenceFile_LR;
+  string cfg_InputReferenceFile_HR;
+#endif
   string cfg_BitstreamFile;
   string cfg_ReconFile;
   string cfg_dQPFile;
@@ -257,6 +261,12 @@ Bool TAppEncCfg::parseCfg( Int argc, Char* argv[] )
   
   // File, I/O and source parameters
   ("InputFile,i",           cfg_InputFile,     string(""), "Original YUV input file name")
+#if ZXF_SET_COMPRESSION 
+  ("InputReferenceFile_LR,-irl",           cfg_InputReferenceFile_LR,     string(""), "LR YUV input reference file name")
+  ("InputReferenceFile_HR,-ihl",           cfg_InputReferenceFile_HR,     string(""), "HR YUV input reference file name")
+  ("LRreferenceWidth,-lrwdt",      m_iRefLRWidth,        0, "LR reference picture width")
+  ("LRreferenceHeight,-lrhgt",     m_iRefLRHeight,       0, "LR reference picture height")
+#endif
   ("BitstreamFile,b",       cfg_BitstreamFile, string(""), "Bitstream output file name")
   ("ReconFile,o",           cfg_ReconFile,     string(""), "Reconstructed YUV output file name")
   ("SourceWidth,-wdt",      m_iSourceWidth,        0, "Source picture width")
@@ -565,6 +575,10 @@ Bool TAppEncCfg::parseCfg( Int argc, Char* argv[] )
    */
   /* convert std::string to c string for compatability */
   m_pchInputFile = cfg_InputFile.empty() ? NULL : strdup(cfg_InputFile.c_str());
+#if ZXF_SET_COMPRESSION
+  m_pchInputReferenceFile_LR = cfg_InputReferenceFile_LR.empty() ? NULL : strdup(cfg_InputReferenceFile_LR.c_str());
+  m_pchInputReferenceFile_HR = cfg_InputReferenceFile_HR.empty() ? NULL : strdup(cfg_InputReferenceFile_HR.c_str());
+#endif
   m_pchBitstreamFile = cfg_BitstreamFile.empty() ? NULL : strdup(cfg_BitstreamFile.c_str());
   m_pchReconFile = cfg_ReconFile.empty() ? NULL : strdup(cfg_ReconFile.c_str());
   m_pchdQPFile = cfg_dQPFile.empty() ? NULL : strdup(cfg_dQPFile.c_str());
@@ -1419,6 +1433,10 @@ Void TAppEncCfg::xPrintParameter()
 {
   printf("\n");
   printf("Input          File          : %s\n", m_pchInputFile          );
+#if ZXF_SET_COMPRESSION
+  printf("Input LR Reference File      : %s\n", m_pchInputReferenceFile_LR);
+  printf("Input HR Reference File      : %s\n", m_pchInputReferenceFile_HR);
+#endif
   printf("Bitstream      File          : %s\n", m_pchBitstreamFile      );
   printf("Reconstruction File          : %s\n", m_pchReconFile          );
   printf("Real     Format              : %dx%d %dHz\n", m_iSourceWidth - m_confWinLeft - m_confWinRight, m_iSourceHeight - m_confWinTop - m_confWinBottom, m_iFrameRate );

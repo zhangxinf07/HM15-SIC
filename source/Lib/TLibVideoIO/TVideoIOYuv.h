@@ -55,6 +55,10 @@ class TVideoIOYuv
 {
 private:
   fstream   m_cHandle;                                      ///< file handle
+#if ZXF_SET_COMPRESSION
+  fstream   m_cHandle_RefHR;
+  fstream   m_cHandle_RefLR;
+#endif
   Int m_fileBitDepthY; ///< bitdepth of input/output video file luma component
   Int m_fileBitDepthC; ///< bitdepth of input/output video file chroma component
   Int m_bitDepthShiftY;  ///< number of bits to increase or decrease luma by before/after write/read
@@ -70,6 +74,13 @@ public:
   void skipFrames(UInt numFrames, UInt width, UInt height);
   
   Bool  read  ( TComPicYuv*   pPicYuv, Int aiPad[2] );     ///< read  one YUV frame with padding parameter
+#if ZXF_SET_COMPRESSION
+  Bool  readRef  (TComPicYuv* pPicYuv, Int aiPad[2],Int isHR);
+  Void  openRef  ( Char* pchFile, Bool bWriteMode, Int fileBitDepthY, Int fileBitDepthC, Int internalBitDepthY, Int internalBitDepthC, Int isHR ); ///< open reference file
+  Void  closeRef (Int isHR); 
+  Bool  isEofRef (Int isHR);                                           ///< check for end-of-file
+  Bool  isFailRef(Int isHR);                                           ///< check for failure
+#endif
   Bool  write( TComPicYuv*    pPicYuv, Int confLeft=0, Int confRight=0, Int confTop=0, Int confBottom=0 );
   Bool  write( TComPicYuv*    pPicYuv, TComPicYuv*    pPicYuv2, Int confLeft=0, Int confRight=0, Int confTop=0, Int confBottom=0  , bool isTff=false); 
   

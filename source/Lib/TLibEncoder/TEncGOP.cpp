@@ -446,6 +446,9 @@ Void TEncGOP::compressGOP( Int iPOCLast, Int iNumPicRcvd, TComList<TComPic*>& rc
     
     //select uiColDir
     Int iCloseLeft=1, iCloseRight=-1;
+#if ZXF_SET_DEBUG
+    Int tmp = m_pcCfg->getGOPEntry(iGOPid).m_numRefPics;
+#endif
     for(Int i = 0; i<m_pcCfg->getGOPEntry(iGOPid).m_numRefPics; i++)
     {
       Int iRef = m_pcCfg->getGOPEntry(iGOPid).m_referencePics[i];

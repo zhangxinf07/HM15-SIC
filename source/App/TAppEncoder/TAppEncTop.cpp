@@ -324,6 +324,10 @@ Void TAppEncTop::xCreateLib()
 {
   // Video I/O
   m_cTVideoIOYuvInputFile.open( m_pchInputFile,     false, m_inputBitDepthY, m_inputBitDepthC, m_internalBitDepthY, m_internalBitDepthC );  // read  mode
+#if ZXF_SET_COMPRESSION
+  m_cTVideoIOYuvInputFile.openRef( m_pchInputReferenceFile_LR,     false, m_inputBitDepthY, m_inputBitDepthC, m_internalBitDepthY, m_internalBitDepthC, 0 );  // read  mode
+  m_cTVideoIOYuvInputFile.openRef( m_pchInputReferenceFile_HR,     false, m_inputBitDepthY, m_inputBitDepthC, m_internalBitDepthY, m_internalBitDepthC, 1 );  // read  mode
+#endif
   m_cTVideoIOYuvInputFile.skipFrames(m_FrameSkip, m_iSourceWidth - m_aiPad[0], m_iSourceHeight - m_aiPad[1]);
 
   if (m_pchReconFile)
@@ -338,6 +342,10 @@ Void TAppEncTop::xDestroyLib()
   // Video I/O
   m_cTVideoIOYuvInputFile.close();
   m_cTVideoIOYuvReconFile.close();
+#if ZXF_SET_COMPRESSION
+  m_cTVideoIOYuvInputFile.closeRef(  0 );  // read  mode
+  m_cTVideoIOYuvInputFile.closeRef(  1 );  // read  mode
+#endif
   
   // Neo Decoder
   m_cTEncTop.destroy();
@@ -370,6 +378,10 @@ Void TAppEncTop::encode()
   }
 
   TComPicYuv*       pcPicYuvOrg = new TComPicYuv;
+#if ZXF_SET_COMPRESSION
+  TComPicYuv*       pcPicYuvHRRef = new TComPicYuv;
+  TComPicYuv*       pcPicYuvLRRef = new TComPicYuv;
+#endif
   TComPicYuv*       pcPicYuvRec = NULL;
   
   // initialize internal class & member variables
@@ -387,10 +399,18 @@ Void TAppEncTop::encode()
   if( m_isField )
   {
     pcPicYuvOrg->create( m_iSourceWidth, m_iSourceHeightOrg, m_uiMaxCUWidth, m_uiMaxCUHeight, m_uiMaxCUDepth );
+#if ZXF_SET_COMPRESSION
+	pcPicYuvHRRef->create( m_iSourceWidth, m_iSourceHeightOrg, m_uiMaxCUWidth, m_uiMaxCUHeight, m_uiMaxCUDepth );
+	pcPicYuvLRRef->create( m_iRefLRWidth, m_iRefLRHeight, m_uiMaxCUWidth, m_uiMaxCUHeight, m_uiMaxCUDepth );
+#endif
   }
   else
   {
     pcPicYuvOrg->create( m_iSourceWidth, m_iSourceHeight, m_uiMaxCUWidth, m_uiMaxCUHeight, m_uiMaxCUDepth );
+#if ZXF_SET_COMPRESSION
+	pcPicYuvHRRef->create( m_iSourceWidth, m_iSourceHeight, m_uiMaxCUWidth, m_uiMaxCUHeight, m_uiMaxCUDepth );
+	pcPicYuvLRRef->create( m_iRefLRWidth, m_iRefLRHeight, m_uiMaxCUWidth, m_uiMaxCUHeight, m_uiMaxCUDepth );
+#endif
   }
   
   while ( !bEos )
@@ -400,6 +420,10 @@ Void TAppEncTop::encode()
 
     // read input YUV file
     m_cTVideoIOYuvInputFile.read( pcPicYuvOrg, m_aiPad );
+#if ZXF_SET_COMPRESSION
+	m_cTVideoIOYuvInputFile.readRef( pcPicYuvHRRef, m_aiPad, 1 );
+	m_cTVideoIOYuvInputFile.readRef( pcPicYuvLRRef, m_aiPad, 0 );
+#endif
     
     // increase number of received frames
     m_iFrameRcvd++;
@@ -439,7 +463,15 @@ Void TAppEncTop::encode()
   pcPicYuvOrg->destroy();
   delete pcPicYuvOrg;
   pcPicYuvOrg = NULL;
-  
+#if ZXF_SET_COMPRESSION
+  pcPicYuvHRRef->destroy();
+  delete pcPicYuvHRRef;
+  pcPicYuvHRRef = NULL;
+
+  pcPicYuvLRRef->destroy();
+  delete pcPicYuvLRRef;
+  pcPicYuvLRRef = NULL;
+#endif
   // delete used buffers in encoder class
   m_cTEncTop.deletePicBuffer();
   

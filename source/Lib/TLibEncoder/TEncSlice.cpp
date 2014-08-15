@@ -254,11 +254,21 @@ Void TEncSlice::initEncSlice( TComPic* pcPic, Int pocLast, Int pocCurr, Int iNum
 #if ALLOW_RECOVERY_POINT_AS_RAP
   if(m_pcCfg->getDecodingRefreshType() == 3)
   {
-    eSliceType = (pocLast == 0 || pocCurr % m_pcCfg->getIntraPeriod() == 0             || m_pcGOPEncoder->getGOPSize() == 0) ? I_SLICE : eSliceType;
+#if ZXF_SET_COMPRESSION
+	  eSliceType = eSliceType;
+#else
+	  eSliceType = (pocLast == 0 || pocCurr % m_pcCfg->getIntraPeriod() == 0             || m_pcGOPEncoder->getGOPSize() == 0) ? I_SLICE : eSliceType;
+#endif
+    
   }
   else
   {
-    eSliceType = (pocLast == 0 || (pocCurr - isField) % m_pcCfg->getIntraPeriod() == 0 || m_pcGOPEncoder->getGOPSize() == 0) ? I_SLICE : eSliceType;
+    
+#if ZXF_SET_COMPRESSION
+	  eSliceType = eSliceType;
+#else
+	  eSliceType = (pocLast == 0 || (pocCurr - isField) % m_pcCfg->getIntraPeriod() == 0 || m_pcGOPEncoder->getGOPSize() == 0) ? I_SLICE : eSliceType;
+#endif
   }
 #else
   eSliceType = (pocLast == 0 || (pocCurr - isField) % m_pcCfg->getIntraPeriod() == 0 || m_pcGOPEncoder->getGOPSize() == 0) ? I_SLICE : eSliceType;
@@ -415,7 +425,12 @@ Void TEncSlice::initEncSlice( TComPic* pcPic, Int pocLast, Int pocCurr, Int iNum
   }
   else
   {
-  eSliceType = (pocLast == 0 || (pocCurr - isField) % m_pcCfg->getIntraPeriod() == 0 || m_pcGOPEncoder->getGOPSize() == 0) ? I_SLICE : eSliceType;
+#if ZXF_SET_COMPRESSION
+	  eSliceType = eSliceType;
+#else
+	  eSliceType = (pocLast == 0 || (pocCurr - isField) % m_pcCfg->getIntraPeriod() == 0 || m_pcGOPEncoder->getGOPSize() == 0) ? I_SLICE : eSliceType;
+#endif
+  
   }
 #else
   eSliceType = (pocLast == 0 || (pocCurr - isField) % m_pcCfg->getIntraPeriod() == 0 || m_pcGOPEncoder->getGOPSize() == 0) ? I_SLICE : eSliceType;

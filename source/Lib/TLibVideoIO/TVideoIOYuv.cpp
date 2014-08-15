@@ -186,7 +186,6 @@ Void TVideoIOYuv::close()
 {
   m_cHandle.close();
 }
-
 Bool TVideoIOYuv::isEof()
 {
   return m_cHandle.eof();
@@ -196,7 +195,96 @@ Bool TVideoIOYuv::isFail()
 {
   return m_cHandle.fail();
 }
+#if ZXF_SET_COMPRESSION
+Void TVideoIOYuv::openRef( Char* pchFile, Bool bWriteMode, Int fileBitDepthY, Int fileBitDepthC, Int internalBitDepthY, Int internalBitDepthC,Int isHR)
+{
+	m_bitDepthShiftY = internalBitDepthY - fileBitDepthY;
+	m_bitDepthShiftC = internalBitDepthC - fileBitDepthC;
+	m_fileBitDepthY = fileBitDepthY;
+	m_fileBitDepthC = fileBitDepthC;
 
+	if ( bWriteMode )
+	{
+		if (isHR)
+		{
+			m_cHandle_RefHR.open( pchFile, ios::binary | ios::out );
+			if( m_cHandle_RefHR.fail() )
+			{
+				printf("\nfailed to write reconstructed YUV file\n");
+				exit(0);
+			}
+		}
+		else
+		{
+			m_cHandle_RefLR.open( pchFile, ios::binary | ios::out );
+			if( m_cHandle_RefLR.fail() )
+			{
+				printf("\nfailed to write reconstructed  YUV file\n");
+				exit(0);
+			}
+		}
+		
+	}
+	else
+	{
+		if (isHR)
+		{
+			m_cHandle_RefHR.open( pchFile, ios::binary | ios::in );
+
+			if( m_cHandle_RefHR.fail() )
+			{
+				printf("\nfailed to open Input HR Ref YUV file\n");
+				exit(0);
+			}
+		}
+		else
+		{
+			m_cHandle_RefLR.open( pchFile, ios::binary | ios::in );
+
+			if( m_cHandle_RefLR.fail() )
+			{
+				printf("\nfailed to open Input LR Ref YUV file\n");
+				exit(0);
+			}
+		}
+
+
+		
+	}
+
+	return;
+}
+
+Void TVideoIOYuv::closeRef(Int isHR)
+{
+	if (isHR)
+	{
+		m_cHandle_RefHR.close();
+	}
+	else
+		m_cHandle_RefLR.close();
+	
+}
+Bool TVideoIOYuv::isEofRef(Int isHR)
+{
+	if (isHR)
+	{
+		return m_cHandle_RefHR.eof();
+	}
+	else
+		return m_cHandle_RefLR.eof();
+}
+
+Bool TVideoIOYuv::isFailRef(Int isHR)
+{
+	if (isHR)
+	{
+		return m_cHandle_RefHR.fail();
+	}
+	else
+		return m_cHandle_RefLR.fail();
+}
+#endif
 /**
  * Skip numFrames in input.
  *
@@ -450,7 +538,95 @@ Bool TVideoIOYuv::read ( TComPicYuv*  pPicYuv, Int aiPad[2] )
 
   return true;
 }
+#if ZXF_SET_COMPRESSION
+Bool TVideoIOYuv::readRef ( TComPicYuv*  pPicYuv, Int aiPad[2],Int isHR )
+{
+	// check end-of-file
+	if ( isEof() ) return false;
 
+	Int   iStride = pPicYuv->getStride();
+
+	// compute actual YUV width & height excluding padding size
+	UInt pad_h = aiPad[0];
+	UInt pad_v = aiPad[1];
+	UInt width_full = pPicYuv->getWidth();
+	UInt height_full = pPicYuv->getHeight();
+	UInt width  = width_full - pad_h;
+	UInt height = height_full - pad_v;
+	Bool is16bit = m_fileBitDepthY > 8 || m_fileBitDepthC > 8;
+
+	Int desired_bitdepthY = m_fileBitDepthY + m_bitDepthShiftY;
+	Int desired_bitdepthC = m_fileBitDepthC + m_bitDepthShiftC;
+	Pel minvalY = 0;
+	Pel minvalC = 0;
+	Pel maxvalY = (1 << desired_bitdepthY) - 1;
+	Pel maxvalC = (1 << desired_bitdepthC) - 1;
+#if CLIP_TO_709_RANGE
+	if (m_bitdepthShiftY < 0 && desired_bitdepthY >= 8)
+	{
+		/* ITU-R BT.709 compliant clipping for converting say 10b to 8b */
+		minvalY = 1 << (desired_bitdepthY - 8);
+		maxvalY = (0xff << (desired_bitdepthY - 8)) -1;
+	}
+	if (m_bitdepthShiftC < 0 && desired_bitdepthC >= 8)
+	{
+		/* ITU-R BT.709 compliant clipping for converting say 10b to 8b */
+		minvalC = 1 << (desired_bitdepthC - 8);
+		maxvalC = (0xff << (desired_bitdepthC - 8)) -1;
+	}
+#endif
+    switch (isHR)
+    {
+    case 0:
+		if (! readPlane(pPicYuv->getLumaAddr(), m_cHandle_RefLR, is16bit, iStride, width, height, pad_h, pad_v))
+			return false;
+    	break;
+	case 1:
+		if (! readPlane(pPicYuv->getLumaAddr(), m_cHandle_RefHR, is16bit, iStride, width, height, pad_h, pad_v))
+			return false;
+		break;
+    }
+	
+	scalePlane(pPicYuv->getLumaAddr(), iStride, width_full, height_full, m_bitDepthShiftY, minvalY, maxvalY);
+
+	iStride >>= 1;
+	width_full >>= 1;
+	height_full >>= 1;
+	width >>= 1;
+	height >>= 1;
+	pad_h >>= 1;
+	pad_v >>= 1;
+
+	switch (isHR)
+	{
+	case 0:
+		if (! readPlane(pPicYuv->getCbAddr(), m_cHandle_RefLR, is16bit, iStride, width, height, pad_h, pad_v))
+			return false;
+		break;
+	case 1:
+		if (! readPlane(pPicYuv->getCbAddr(), m_cHandle_RefHR, is16bit, iStride, width, height, pad_h, pad_v))
+			return false;
+		break;
+	}	
+	scalePlane(pPicYuv->getCbAddr(), iStride, width_full, height_full, m_bitDepthShiftC, minvalC, maxvalC);
+
+
+	switch (isHR)
+	{
+	case 0:
+		if (! readPlane(pPicYuv->getCrAddr(), m_cHandle_RefLR, is16bit, iStride, width, height, pad_h, pad_v))
+			return false;
+		break;
+	case 1:
+		if (! readPlane(pPicYuv->getCrAddr(), m_cHandle_RefHR, is16bit, iStride, width, height, pad_h, pad_v))
+			return false;
+		break;
+	}	
+	scalePlane(pPicYuv->getCrAddr(), iStride, width_full, height_full, m_bitDepthShiftC, minvalC, maxvalC);
+
+	return true;
+}
+#endif
 /**
  * Write one Y'CbCr frame. No bit-depth conversion is performed, pcPicYuv is
  * assumed to be at TVideoIO::m_fileBitdepth depth.

@@ -1,0 +1,20 @@
+﻿Build started 15/8/2014 03:38:18 PM.
+     1>Project "D:\Gitrepositories\HM15-SIC\build\vc10\TAppCommon_vc10.vcxproj" on node 4 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TAppCommon\TAppCommon.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TAppCommon\TAppCommon.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:\Gitrepositories\HM15-SIC\build\\..\source\Lib\\" /I"D:\Gitrepositories\HM15-SIC\build\\..\compat\msvc" /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TAppCommon\\" /Fd"D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TAppCommon\vc100.pdb" /Gd /TP /errorReport:prompt ..\..\source\Lib\TAppCommon\program_options_lite.cpp
+         program_options_lite.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\Lib.exe /OUT:"D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TAppCommon\TAppCommon.lib" /NOLOGO "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TAppCommon\program_options_lite.obj"
+         TAppCommon_vc10.vcxproj -> D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TAppCommon\TAppCommon.lib
+       FinalizeBuildStatus:
+         Deleting file "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TAppCommon\TAppCommon.unsuccessfulbuild".
+         Touching "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TAppCommon\TAppCommon.lastbuildstate".
+     1>Done Building Project "D:\Gitrepositories\HM15-SIC\build\vc10\TAppCommon_vc10.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.97

@@ -65,7 +65,7 @@ private:
   Pel*  m_piPicOrgY;            ///< m_apiPicBufY + m_iMarginLuma*getStride() + m_iMarginLuma
   Pel*  m_piPicOrgU;
   Pel*  m_piPicOrgV;
-  
+
   // ------------------------------------------------------------------------------------------------
   //  Parameter for general YUV buffer usage
   // ------------------------------------------------------------------------------------------------

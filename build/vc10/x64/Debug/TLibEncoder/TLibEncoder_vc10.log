@@ -1,0 +1,36 @@
+﻿Build started 15/8/2014 07:43:59 PM.
+     1>Project "D:\Gitrepositories\HM15-SIC\build\vc10\TLibEncoder_vc10.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TLibEncoder.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"D:\Gitrepositories\HM15-SIC\build\\..\source\Lib\\" /I"D:\Gitrepositories\HM15-SIC\build\\..\compat\msvc" /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\\" /Fd"D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\vc100.pdb" /Gd /TP /errorReport:prompt ..\..\source\Lib\TLibEncoder\TEncSlice.cpp
+         TEncSlice.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\Lib.exe /OUT:"D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TLibEncoder.lib" /NOLOGO "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\NALwrite.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\SEIwrite.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\SyntaxElementWriter.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TEncAnalyze.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TEncBinCoderCABAC.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TEncBinCoderCABACCounter.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TEncCavlc.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TEncCu.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TEncEntropy.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TEncGOP.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TEncPic.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TEncPreanalyzer.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TEncRateCtrl.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TEncSampleAdaptiveOffset.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TEncSbac.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TEncSearch.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TEncSlice.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TEncTop.obj"
+         "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\WeightPredAnalysis.obj"
+         TLibEncoder_vc10.vcxproj -> D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TLibEncoder.lib
+       FinalizeBuildStatus:
+         Deleting file "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TLibEncoder.unsuccessfulbuild".
+         Touching "D:\Gitrepositories\HM15-SIC\build\\vc10\x64\Debug\TLibEncoder\TLibEncoder.lastbuildstate".
+     1>Done Building Project "D:\Gitrepositories\HM15-SIC\build\vc10\TLibEncoder_vc10.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.75

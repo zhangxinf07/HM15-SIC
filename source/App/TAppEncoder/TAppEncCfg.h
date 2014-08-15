@@ -56,6 +56,12 @@ class TAppEncCfg
 protected:
   // file I/O
   Char*     m_pchInputFile;                                   ///< source file name
+#if ZXF_SET_COMPRESSION
+  Char*     m_pchInputReferenceFile_LR;
+  Char*     m_pchInputReferenceFile_HR;
+  Int       m_iRefLRWidth;                                   ///< LR reference width in pixel
+  Int       m_iRefLRHeight;                                  ///< LR reference height in pixel (when interlaced = field height)
+#endif
   Char*     m_pchBitstreamFile;                               ///< output bitstream file
   Char*     m_pchReconFile;                                   ///< output reconstruction file
   Double    m_adLambdaModifier[ MAX_TLAYER ];                 ///< Lambda modifier array for each temporal layer
