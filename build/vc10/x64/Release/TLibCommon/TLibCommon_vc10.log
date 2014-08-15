@@ -1,0 +1,66 @@
+﻿Build started 13/8/2014 01:05:59 PM.
+     1>Project "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\vc10\TLibCommon_vc10.vcxproj" on node 4 (rebuild target(s)).
+     1>InitializeBuildStatus:
+         Creating "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TLibCommon.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\..\source\Lib\\" /I"E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\..\compat\msvc" /Zi /nologo /W3 /WX- /O2 /Ob2 /Ot /GL /D WIN32 /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\\" /Fd"E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\vc100.pdb" /Gd /TP /errorReport:prompt ..\..\source\Lib\TLibCommon\ContextModel.cpp ..\..\source\Lib\TLibCommon\ContextModel3DBuffer.cpp ..\..\source\Lib\TLibCommon\SEI.cpp ..\..\source\Lib\TLibCommon\TComBitStream.cpp ..\..\source\Lib\TLibCommon\TComCABACTables.cpp ..\..\source\Lib\TLibCommon\TComDataCU.cpp ..\..\source\Lib\TLibCommon\TComInterpolationFilter.cpp ..\..\source\Lib\TLibCommon\TComLoopFilter.cpp ..\..\source\Lib\TLibCommon\TComMotionInfo.cpp ..\..\source\Lib\TLibCommon\TComPattern.cpp ..\..\source\Lib\TLibCommon\TComPic.cpp ..\..\source\Lib\TLibCommon\TComPicSym.cpp ..\..\source\Lib\TLibCommon\TComPicYuv.cpp ..\..\source\Lib\TLibCommon\TComPicYuvMD5.cpp ..\..\source\Lib\TLibCommon\TComPrediction.cpp ..\..\source\Lib\TLibCommon\TComRdCost.cpp ..\..\source\Lib\TLibCommon\TComRdCostWeightPrediction.cpp ..\..\source\Lib\TLibCommon\TComRom.cpp ..\..\source\Lib\TLibCommon\TComSampleAdaptiveOffset.cpp ..\..\source\Lib\TLibCommon\TComSlice.cpp ..\..\source\Lib\TLibCommon\TComTrQuant.cpp ..\..\source\Lib\TLibCommon\TComWeightPrediction.cpp ..\..\source\Lib\TLibCommon\TComYuv.cpp
+         ContextModel.cpp
+         ContextModel3DBuffer.cpp
+         SEI.cpp
+         TComBitStream.cpp
+         TComCABACTables.cpp
+         TComDataCU.cpp
+         TComInterpolationFilter.cpp
+         TComLoopFilter.cpp
+         TComMotionInfo.cpp
+         TComPattern.cpp
+         TComPic.cpp
+         TComPicSym.cpp
+         TComPicYuv.cpp
+         TComPicYuvMD5.cpp
+         TComPrediction.cpp
+         TComRdCost.cpp
+         TComRdCostWeightPrediction.cpp
+         TComRom.cpp
+         TComSampleAdaptiveOffset.cpp
+         TComSlice.cpp
+         Compiling...
+         TComTrQuant.cpp
+         TComWeightPrediction.cpp
+         TComYuv.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\..\source\Lib\\" /I"E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\..\compat\msvc" /Zi /nologo /W3 /WX- /O2 /Ob2 /Ot /GL /D WIN32 /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\\" /Fd"E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\vc100.pdb" /Gd /TC /errorReport:prompt ..\..\source\Lib\libmd5\libmd5.c
+         libmd5.c
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\Lib.exe /OUT:"E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TLibCommon.lib" /NOLOGO /LTCG "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\ContextModel.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\ContextModel3DBuffer.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\libmd5.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\SEI.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComBitStream.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComCABACTables.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComDataCU.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComInterpolationFilter.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComLoopFilter.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComMotionInfo.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComPattern.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComPic.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComPicSym.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComPicYuv.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComPicYuvMD5.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComPrediction.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComRdCost.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComRdCostWeightPrediction.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComRom.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComSampleAdaptiveOffset.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComSlice.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComTrQuant.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComWeightPrediction.obj"
+         "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TComYuv.obj"
+         TLibCommon_vc10.vcxproj -> E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TLibCommon.lib
+       FinalizeBuildStatus:
+         Deleting file "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TLibCommon.unsuccessfulbuild".
+         Touching "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\\vc10\x64\Release\TLibCommon\TLibCommon.lastbuildstate".
+     1>Done Building Project "E:\write_papers\ImageSetCompression_SR\Sourcecode\HM-15.0-SIC\build\vc10\TLibCommon_vc10.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:11.97
